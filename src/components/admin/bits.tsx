@@ -215,7 +215,10 @@ export function StatCard({
   const t = TONES[tone];
   return (
     <div
-      className={cn("panel-lux relative overflow-hidden p-4 sm:p-5", t.ring)}
+      className={cn(
+        "panel-lux lux-rise stat-lift relative overflow-hidden p-4 sm:p-5",
+        t.ring,
+      )}
       style={{ backgroundImage: `radial-gradient(420px 140px at 100% 0%, ${t.glow}, transparent 70%)` }}
     >
       <div className="flex items-start justify-between gap-2">
