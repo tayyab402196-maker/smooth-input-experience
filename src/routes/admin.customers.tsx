@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Crown, Search, Users } from "lucide-react";
+import { Crown, Users } from "lucide-react";
 import { useState } from "react";
 import {
   CartesianGrid,
@@ -11,7 +11,7 @@ import {
   YAxis,
 } from "recharts";
 
-import { Bar as MiniBar, Money, Panel, StatCard, fieldClass } from "@/components/admin/bits";
+import { Bar as MiniBar, LuxSearch, Money, Panel, StatCard } from "@/components/admin/bits";
 import { customerRows, money, revenueSeries, timeAgo, useAdmin } from "@/lib/admin-store";
 
 import { readAccount } from "@/lib/auth";
