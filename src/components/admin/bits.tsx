@@ -42,6 +42,19 @@ const STATUS_STYLES: Record<OrderStatus, string> = {
   cancelled: "border-ruby/45 bg-ruby/12 text-ruby",
 };
 
+const STATUS_ICONS: Record<OrderStatus, LucideIcon> = {
+  pending: Hourglass,
+  confirmed: CheckCircle2,
+  kitchen: ChefHat,
+  packed: PackageCheck,
+  onway: Bike,
+  delivered: BadgeCheck,
+  cancelled: XCircle,
+};
+
+/** Statuses that are still "in motion" get a live pulse. */
+const LIVE_STATUSES: OrderStatus[] = ["pending", "confirmed", "kitchen", "packed", "onway"];
+
 const PAY_STYLES: Record<PaymentStatus, string> = {
   pending: "border-lux/45 bg-lux/12 text-lux",
   verified: "border-jade/45 bg-jade/12 text-jade",
@@ -50,14 +63,23 @@ const PAY_STYLES: Record<PaymentStatus, string> = {
 };
 
 export function StatusBadge({ status }: { status: OrderStatus }) {
+  const Icon = STATUS_ICONS[status];
+  const live = LIVE_STATUSES.includes(status);
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.14em]",
+        "status-chip inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em]",
         STATUS_STYLES[status],
+        live && "status-chip-live",
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-current" />
+      <span className="relative flex h-1.5 w-1.5 items-center justify-center">
+        {live ? (
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-70" />
+        ) : null}
+        <span className="relative h-1.5 w-1.5 rounded-full bg-current" />
+      </span>
+      <Icon className={cn("h-3 w-3", status === "onway" && "status-chip-ride")} />
       {STATUS_LABEL[status]}
     </span>
   );
