@@ -4,7 +4,6 @@ import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { toast } from "sonner";
 
 import { VoltScene, VoltStrength } from "@/components/auth/chef-volt";
-import { PlatformGuide } from "@/components/auth/platform-guide";
 import { EMAIL_RE, pickLine, useChefVolt } from "@/hooks/use-chef-volt";
 import { ROLE_HOME, signIn } from "@/lib/auth";
 import { API_SLOW_DONE_EVENT, API_SLOW_EVENT, ApiError } from "@/lib/api/client";
@@ -109,7 +108,6 @@ function LoginPage() {
           </Link>
         </>
       }
-      below={<PlatformGuide variant="login" />}
     >
       <form onSubmit={submit} className="space-y-5">
         <label className="auth-field-wrap block">
