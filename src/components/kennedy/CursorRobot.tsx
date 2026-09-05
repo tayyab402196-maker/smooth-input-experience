@@ -35,10 +35,18 @@ export function CursorRobot() {
     let visible = 0;
     let squash = 1;
 
+    // Interactive surfaces where the trailing robot would get in the way of
+    // reading, typing or clicking: it fades out while the pointer is over them.
+    const QUIET_ZONE =
+      'a, button, input, textarea, select, label, [role="button"], [role="link"], [role="textbox"], [role="menuitem"], [role="tab"], [role="option"], [contenteditable="true"], [data-no-cursor-robot]';
+
+    const isQuiet = (t: EventTarget | null) =>
+      t instanceof Element ? Boolean(t.closest(QUIET_ZONE)) : false;
+
     const onMove = (e: PointerEvent) => {
       target.x = e.clientX;
       target.y = e.clientY;
-      visible = 1;
+      visible = isQuiet(e.target) ? 0 : 1;
     };
     const onLeave = () => {
       visible = 0;
