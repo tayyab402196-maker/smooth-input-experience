@@ -144,7 +144,7 @@ export function Panel({
   bodyClassName?: string;
 }) {
   return (
-    <section className={cn("panel-lux overflow-hidden", className)}>
+    <section className={cn("panel-lux panel-lift lux-rise overflow-hidden", className)}>
       {title || action ? (
         <header className="panel-hairline flex flex-wrap items-center justify-between gap-3 px-5 py-4">
           <div>
@@ -216,14 +216,14 @@ export function StatCard({
   return (
     <div
       className={cn(
-        "panel-lux lux-rise stat-lift relative overflow-hidden p-4 sm:p-5",
+        "panel-lux lux-rise card-3d relative overflow-hidden p-4 sm:p-5",
         t.ring,
       )}
       style={{ backgroundImage: `radial-gradient(420px 140px at 100% 0%, ${t.glow}, transparent 70%)` }}
     >
       <div className="flex items-start justify-between gap-2">
         <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-dim sm:tracking-[0.22em]">{label}</p>
-        <span className={cn("shrink-0 opacity-90", t.text)}>{icon}</span>
+        {icon ? <span className={cn("icon-3d shrink-0", t.text)}>{icon}</span> : null}
       </div>
       <p className={cn("num-lux mt-2 text-2xl sm:mt-3 sm:text-3xl", t.text)}>{value}</p>
       <div className="mt-1 flex items-center gap-2">
