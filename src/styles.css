@@ -2273,6 +2273,46 @@
     gap: 0.35rem;
     padding: 0.85rem 0.9rem;
   }
+
+  /* Compact the cover so nothing crowds the tap CTA on small books. */
+  .menu-page--cover-front {
+    gap: 0.2rem;
+    padding: 1rem 0.8rem;
+  }
+  .menu-cover__crest--caddy {
+    width: 46px;
+    height: 46px;
+  }
+  .menu-cover__kicker {
+    margin-top: 0.5rem;
+    font-size: 0.42rem;
+  }
+  .menu-cover__title {
+    margin-top: 0.35rem;
+    font-size: 1.7rem;
+  }
+  .menu-cover__flourish {
+    margin-top: 0.35rem;
+  }
+  .menu-cover__flourish span {
+    width: 22px;
+  }
+  .menu-cover__sub {
+    margin-top: 0.3rem;
+    font-size: 0.42rem;
+    letter-spacing: 0.16em;
+    text-indent: 0.16em;
+  }
+  .menu-cover__cta {
+    bottom: 12px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.5rem;
+  }
+  .menu-cover__pulse {
+    bottom: 9px;
+    width: 108px;
+    height: 28px;
+  }
   .menu-page__backname {
     font-size: 1rem;
   }
