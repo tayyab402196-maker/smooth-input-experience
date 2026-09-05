@@ -216,20 +216,19 @@ function Index() {
               </OrderButton>
             </motion.div>
 
-            {/* Phone: one tidy cream cluster — order, profile, menu */}
+            {/* Phone: clean text/icon actions — order, profile, menu */}
             <motion.div {...rise(0.62)} className="nav-cluster lg:hidden">
               <button
                 type="button"
                 onClick={handleOrderNow}
-                className="nav-cluster-btn w-auto gap-1.5 bg-flame px-4 font-display text-[11px] font-extrabold tracking-[0.12em] text-cream uppercase shadow-[0_8px_16px_rgba(180,40,20,0.4)]"
+                className="nav-cluster-btn font-display text-[12px] font-extrabold tracking-[0.14em] text-flame uppercase underline decoration-2 underline-offset-4"
               >
                 Order
               </button>
-              <span aria-hidden="true" className="h-6 w-px bg-charcoal/10" />
               <Link
                 to={isSignedIn ? "/profile" : "/login"}
                 aria-label={isSignedIn ? "Your profile" : "Log in"}
-                className="nav-cluster-btn text-flame active:bg-flame/10"
+                className="nav-cluster-btn text-flame"
               >
                 {isSignedIn ? (
                   <UserRound className="h-5 w-5" aria-hidden="true" />
@@ -242,7 +241,7 @@ function Index() {
                 aria-label="Open menu"
                 aria-expanded={navOpen}
                 onClick={() => setNavOpen((v) => !v)}
-                className="nav-cluster-btn text-charcoal active:bg-flame/10"
+                className="nav-cluster-btn text-charcoal"
               >
                 {navOpen ? (
                   <X className="h-5 w-5" aria-hidden="true" />
