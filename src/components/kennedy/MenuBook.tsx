@@ -219,7 +219,7 @@ export function MenuBook() {
               </button>
             </div>
           </div>
-        </button>
+        </div>
 
         {/* Dish pages: Sheet i (1 <= i < dishes.length) */}
         {dishes.slice(0, dishes.length - 1).map((dish, i) => {
