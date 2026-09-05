@@ -1037,6 +1037,9 @@ export async function saveRider(input: Partial<Rider> & { name: string; phone: s
     rating: 0,
     deliveries: 0,
     earnings: 0,
+    cashInHand: 0,
+    totalEarned: 0,
+    baseSalary: 0,
     joinedAt: Date.now(),
     location: null,
   };
