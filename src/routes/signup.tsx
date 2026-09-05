@@ -5,6 +5,7 @@ import { Bike, CheckCircle2, Clock, Crown, Eye, EyeOff, Lock, Mail, Phone, UserR
 import { toast } from "sonner";
 
 import { VoltScene, VoltStrength } from "@/components/auth/chef-volt";
+import { PlatformGuide } from "@/components/auth/platform-guide";
 import { EMAIL_RE, pickLine, useChefVolt } from "@/hooks/use-chef-volt";
 import { ROLE_COPY, ROLE_HOME, signUp, type AccountRole } from "@/lib/auth";
 import { ApiError } from "@/lib/api/client";
@@ -161,6 +162,7 @@ function SignupPage() {
           </Link>
         </>
       }
+      below={<PlatformGuide variant="signup" />}
     >
       <form onSubmit={submit} className="space-y-5">
         <div>

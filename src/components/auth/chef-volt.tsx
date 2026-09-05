@@ -64,6 +64,7 @@ export function VoltScene({
   subtitle,
   children,
   footer,
+  below,
 }: {
   volt: ChefVolt;
   eyebrow: string;
@@ -71,6 +72,8 @@ export function VoltScene({
   subtitle: string;
   children: ReactNode;
   footer: ReactNode;
+  /** Optional full-width content rendered under the scene (e.g. platform guide). */
+  below?: ReactNode;
 }) {
   const [calm, setCalm] = useState(false);
 
@@ -142,6 +145,7 @@ export function VoltScene({
           <div className="mt-6 border-t border-charcoal/10 pt-4 text-center text-xs text-charcoal/65">{footer}</div>
         </section>
       </div>
+      {below}
     </main>
   );
 }
