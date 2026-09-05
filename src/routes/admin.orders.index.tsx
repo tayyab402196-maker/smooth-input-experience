@@ -8,6 +8,7 @@ import {
   DangerButton,
   Field,
   GhostButton,
+  LuxSearch,
   Money,
   Panel,
   PaymentBadge,
