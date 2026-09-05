@@ -130,11 +130,21 @@ export function MenuBook() {
 
       <div className={`menu-book${open.some(Boolean) ? " is-open" : ""}`}>
         {/* Cover Sheet (Sheet 0) */}
-        <button
-          type="button"
+        <div
+          role="button"
+          tabIndex={0}
           className={`menu-book__page menu-book__page--cover${coverOpen ? " is-open" : ""}`}
           style={{ "--i": 0 } as CSSProperties}
           onClick={(event) => {
+            event.stopPropagation();
+            toggle(
+              0,
+              `Recipe 1: ${dishes[0]!.name}. ${dishes[0]!.description}. Price: ${dishes[0]!.price}`
+            );
+          }}
+          onKeyDown={(event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
             event.stopPropagation();
             toggle(
               0,
@@ -209,7 +219,7 @@ export function MenuBook() {
               </button>
             </div>
           </div>
-        </button>
+        </div>
 
         {/* Dish pages: Sheet i (1 <= i < dishes.length) */}
         {dishes.slice(0, dishes.length - 1).map((dish, i) => {
