@@ -67,7 +67,7 @@ export function MascotFooter() {
           aria-hidden="true"
           loading="lazy"
           style={reduce ? undefined : { x: leftX, y: riseLeft, translateY: leftY }}
-          className="pointer-events-none absolute bottom-[6.5rem] -left-[14%] z-0 w-[52%] max-w-[30rem] origin-bottom drop-shadow-[0_24px_40px_rgba(60,10,10,0.45)] sm:-left-[6%] sm:w-[34%] lg:left-[-2%] lg:w-[26%]"
+          className="pointer-events-none absolute bottom-[13rem] -left-[14%] z-0 w-[46%] sm:bottom-[6.5rem] max-w-[30rem] origin-bottom drop-shadow-[0_24px_40px_rgba(60,10,10,0.45)] sm:-left-[6%] sm:w-[34%] lg:left-[-2%] lg:w-[26%]"
         />
         {/* right mascot */}
         <motion.img
@@ -76,7 +76,7 @@ export function MascotFooter() {
           aria-hidden="true"
           loading="lazy"
           style={reduce ? undefined : { x: rightX, y: riseRight, translateY: rightY }}
-          className="pointer-events-none absolute -right-[16%] bottom-[6.5rem] z-0 w-[54%] max-w-[32rem] origin-bottom drop-shadow-[0_24px_40px_rgba(60,10,10,0.45)] sm:-right-[6%] sm:w-[36%] lg:right-[-2%] lg:w-[28%]"
+          className="pointer-events-none absolute -right-[16%] bottom-[13rem] z-0 w-[48%] sm:bottom-[6.5rem] max-w-[32rem] origin-bottom drop-shadow-[0_24px_40px_rgba(60,10,10,0.45)] sm:-right-[6%] sm:w-[36%] lg:right-[-2%] lg:w-[28%]"
         />
 
         {/* centered copy */}
@@ -128,7 +128,7 @@ export function MascotFooter() {
         </div>
 
         {/* bottom bar */}
-        <div className="relative z-10 border-t border-cream/25">
+        <div className="relative z-20 mt-6 rounded-t-[1.75rem] border-t border-cream/25 bg-flame px-5 shadow-[0_-18px_40px_rgba(60,10,10,0.35)] sm:mt-0 sm:rounded-none sm:bg-transparent sm:px-0 sm:shadow-none">
           <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-6 py-7 text-cream sm:grid-cols-3">
             <div className="space-y-1.5">
               <p className="font-display text-xs font-extrabold tracking-[0.2em] uppercase">

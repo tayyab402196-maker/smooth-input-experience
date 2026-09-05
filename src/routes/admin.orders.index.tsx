@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ClipboardList, Eye, Search, Trash2, X } from "lucide-react";
+import { ClipboardList, Eye, Trash2, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -8,6 +8,7 @@ import {
   DangerButton,
   Field,
   GhostButton,
+  LuxSearch,
   Money,
   Panel,
   PaymentBadge,
@@ -167,15 +168,12 @@ function OrdersDesk() {
       <Panel bodyClassName="p-4">
         <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
           <Field label="Search" className="sm:col-span-2 md:col-span-1">
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-dim" />
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Code, customer, reference"
-                className={`${fieldClass} pl-9`}
-              />
-            </div>
+            <LuxSearch
+              value={search}
+              onChange={setSearch}
+              placeholder="Code, customer, reference"
+              ariaLabel="Search orders"
+            />
           </Field>
           <Field label="Status">
             <select

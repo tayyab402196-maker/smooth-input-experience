@@ -1,5 +1,17 @@
 import type { ReactNode } from "react";
 import {
+  BadgeCheck,
+  Bike,
+  CheckCircle2,
+  ChefHat,
+  Hourglass,
+  PackageCheck,
+  Search,
+  X as XIcon,
+  XCircle,
+  type LucideIcon,
+} from "lucide-react";
+import {
   Area,
   AreaChart,
   Bar as RBar,
@@ -42,6 +54,19 @@ const STATUS_STYLES: Record<OrderStatus, string> = {
   cancelled: "border-ruby/45 bg-ruby/12 text-ruby",
 };
 
+const STATUS_ICONS: Record<OrderStatus, LucideIcon> = {
+  pending: Hourglass,
+  confirmed: CheckCircle2,
+  kitchen: ChefHat,
+  packed: PackageCheck,
+  onway: Bike,
+  delivered: BadgeCheck,
+  cancelled: XCircle,
+};
+
+/** Statuses that are still "in motion" get a live pulse. */
+const LIVE_STATUSES: OrderStatus[] = ["pending", "confirmed", "kitchen", "packed", "onway"];
+
 const PAY_STYLES: Record<PaymentStatus, string> = {
   pending: "border-lux/45 bg-lux/12 text-lux",
   verified: "border-jade/45 bg-jade/12 text-jade",
@@ -50,14 +75,23 @@ const PAY_STYLES: Record<PaymentStatus, string> = {
 };
 
 export function StatusBadge({ status }: { status: OrderStatus }) {
+  const Icon = STATUS_ICONS[status];
+  const live = LIVE_STATUSES.includes(status);
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.14em]",
+        "status-chip inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em]",
         STATUS_STYLES[status],
+        live && "status-chip-live",
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-current" />
+      <span className="relative flex h-1.5 w-1.5 items-center justify-center">
+        {live ? (
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-70" />
+        ) : null}
+        <span className="relative h-1.5 w-1.5 rounded-full bg-current" />
+      </span>
+      <Icon className={cn("h-3 w-3", status === "onway" && "status-chip-ride")} />
       {STATUS_LABEL[status]}
     </span>
   );
@@ -181,7 +215,10 @@ export function StatCard({
   const t = TONES[tone];
   return (
     <div
-      className={cn("panel-lux relative overflow-hidden p-4 sm:p-5", t.ring)}
+      className={cn(
+        "panel-lux lux-rise stat-lift relative overflow-hidden p-4 sm:p-5",
+        t.ring,
+      )}
       style={{ backgroundImage: `radial-gradient(420px 140px at 100% 0%, ${t.glow}, transparent 70%)` }}
     >
       <div className="flex items-start justify-between gap-2">
@@ -210,6 +247,45 @@ export function StatCard({
     </div>
   );
 }
+
+/** Gold-trimmed animated search field used across the console. */
+export function LuxSearch({
+  value,
+  onChange,
+  placeholder = "Search",
+  className,
+  ariaLabel = "Search",
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  return (
+    <div className={cn("lux-search group", className)}>
+      <Search className="lux-search-icon h-4 w-4" />
+      <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        aria-label={ariaLabel}
+        className="lux-search-input"
+      />
+      {value ? (
+        <button
+          type="button"
+          aria-label="Clear search"
+          onClick={() => onChange("")}
+          className="lux-search-clear"
+        >
+          <XIcon className="h-3.5 w-3.5" />
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
 
 export function Money({ value, className }: { value: number; className?: string }) {
   return <span className={cn("font-bold tabular-nums", className)}>{money(value)}</span>;
