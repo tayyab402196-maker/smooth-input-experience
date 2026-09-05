@@ -245,6 +245,45 @@ export function StatCard({
   );
 }
 
+/** Gold-trimmed animated search field used across the console. */
+export function LuxSearch({
+  value,
+  onChange,
+  placeholder = "Search",
+  className,
+  ariaLabel = "Search",
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  return (
+    <div className={cn("lux-search group", className)}>
+      <Search className="lux-search-icon h-4 w-4" />
+      <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        aria-label={ariaLabel}
+        className="lux-search-input"
+      />
+      {value ? (
+        <button
+          type="button"
+          aria-label="Clear search"
+          onClick={() => onChange("")}
+          className="lux-search-clear"
+        >
+          <XIcon className="h-3.5 w-3.5" />
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+
 export function Money({ value, className }: { value: number; className?: string }) {
   return <span className={cn("font-bold tabular-nums", className)}>{money(value)}</span>;
 }
