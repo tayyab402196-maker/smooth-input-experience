@@ -224,6 +224,20 @@ function Index() {
               Order
             </motion.button>
 
+            <motion.div {...rise(0.68)} className="shrink-0 lg:hidden">
+              <Link
+                to={isSignedIn ? "/profile" : "/login"}
+                aria-label={isSignedIn ? "Your profile" : "Log in"}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream text-flame shadow-[0_8px_18px_rgba(0,0,0,0.18)] transition-transform duration-200 active:scale-95"
+              >
+                {isSignedIn ? (
+                  <UserRound className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <LogIn className="h-5 w-5" aria-hidden="true" />
+                )}
+              </Link>
+            </motion.div>
+
             <button
               type="button"
               aria-label="Open menu"
