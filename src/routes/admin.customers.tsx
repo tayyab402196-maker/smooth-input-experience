@@ -89,15 +89,13 @@ function Customers() {
       <Panel
         title="Customer book"
         action={
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-dim" />
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search guests"
-              className={`${fieldClass} w-56 pl-9`}
-            />
-          </div>
+          <LuxSearch
+            value={search}
+            onChange={setSearch}
+            placeholder="Search guests"
+            ariaLabel="Search guests"
+            className="w-full sm:w-64"
+          />
         }
         bodyClassName="p-0"
       >
