@@ -1,5 +1,17 @@
 import type { ReactNode } from "react";
 import {
+  BadgeCheck,
+  Bike,
+  CheckCircle2,
+  ChefHat,
+  Hourglass,
+  PackageCheck,
+  Search,
+  X as XIcon,
+  XCircle,
+  type LucideIcon,
+} from "lucide-react";
+import {
   Area,
   AreaChart,
   Bar as RBar,
