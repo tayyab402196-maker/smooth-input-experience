@@ -127,8 +127,8 @@ export function MascotFooter() {
           </motion.div>
         </div>
 
-        {/* bottom bar */}
-        <div className="relative z-20 mt-6 rounded-t-[1.75rem] border-t border-cream/25 bg-flame px-5 shadow-[0_-18px_40px_rgba(60,10,10,0.35)] sm:mt-0 sm:rounded-none sm:bg-transparent sm:px-0 sm:shadow-none">
+        {/* bottom bar — no panel, sits on the red band with the mascots peeking above it */}
+        <div className="relative z-20 mt-6 border-t border-cream/25 px-5 [text-shadow:0_1px_8px_rgba(60,10,10,0.55)] sm:mt-0 sm:px-0">
           <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-6 py-7 text-cream sm:grid-cols-3">
             <div className="space-y-1.5">
               <p className="font-display text-xs font-extrabold tracking-[0.2em] uppercase">

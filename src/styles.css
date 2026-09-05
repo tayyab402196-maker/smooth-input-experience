@@ -721,7 +721,7 @@
 
   .slice-card {
     position: relative;
-    width: min(100%, 22rem);
+    width: min(100%, 16.5rem);
     aspect-ratio: 4 / 5;
     border-radius: 1.25rem;
     padding: 0.55rem;
@@ -1667,8 +1667,8 @@
 
 .menu-book {
   position: relative;
-  width: 240px;
-  height: 340px;
+  width: 210px;
+  height: 296px;
   perspective: 1400px;
   transform-style: preserve-3d;
   display: flex;
@@ -1691,7 +1691,7 @@
 }
 
 .menu-book.is-open {
-  --spine-shift: 120px;
+  --spine-shift: 105px;
   --tilt-y: -4deg;
   --tilt-x: 3deg;
 }
@@ -1736,8 +1736,8 @@
 
 .menu-book__page {
   position: absolute;
-  width: 240px;
-  height: 340px;
+  width: 210px;
+  height: 296px;
   padding: 0;
   border: 0;
   background: var(--book-paper);
@@ -2259,13 +2259,13 @@
   .menu-book.is-open {
     /* Shift the open book right enough that the flipped page (which extends
        one full page-width to the LEFT of the spine) never leaves the screen. */
-    --spine-shift: 104px;
+    --spine-shift: 88px;
     --tilt-y: -2deg;
   }
   .menu-book,
   .menu-book__page {
-    width: 190px;
-    height: 300px;
+    width: 168px;
+    height: 250px;
   }
 
   /* Compact the recipe (back) page so the Order button always fits. */
@@ -2296,8 +2296,8 @@
 @media (min-width: 768px) {
   .menu-book,
   .menu-book__page {
-    width: 300px;
-    height: 420px;
+    width: 262px;
+    height: 366px;
   }
   .menu-cover__title {
     font-size: 3rem;
