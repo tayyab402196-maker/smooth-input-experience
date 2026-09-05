@@ -84,11 +84,12 @@ export function ConsoleShell({
   return (
     <div className="console-shell min-h-screen text-frost">
       {/* Mobile top bar */}
-      <header className="sticky top-0 z-40 flex items-center gap-3 border-b border-lux/15 bg-ink-deep/85 px-4 py-3 backdrop-blur-xl lg:hidden">
+      <header className="sticky top-0 z-40 lg:hidden">
+        <div className="flex items-center gap-3 border-b border-lux/15 bg-ink-deep/85 px-4 py-3 backdrop-blur-xl">
         <button
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-lux/25 bg-lux/10 text-lux"
+          className="icon-3d h-10 w-10 text-lux transition-transform duration-200 active:scale-90"
         >
           <Menu className="h-4 w-4" />
         </button>
@@ -97,6 +98,8 @@ export function ConsoleShell({
           <p className="num-lux truncate text-lg leading-tight text-frost">{title}</p>
         </div>
         <div className="ml-auto shrink-0">{badge}</div>
+        </div>
+        <div className="gold-bar" />
       </header>
 
       {/* Mobile drawer */}
@@ -138,9 +141,9 @@ export function ConsoleShell({
               <Link
                 to={to}
                 activeOptions={{ exact: Boolean(exact) }}
-                activeProps={{ className: "text-lux" }}
+                activeProps={{ className: "tab-3d-active" }}
                 className={cn(
-                  "group flex flex-col items-center gap-1 px-1 py-2.5 text-[9px] font-black uppercase tracking-[0.12em] text-slate-dim transition",
+                  "tab-3d group flex flex-col items-center gap-1 px-1 py-2.5 text-[9px] font-black uppercase tracking-[0.12em] text-slate-dim",
                 )}
               >
                 <Icon className="h-[18px] w-[18px]" />

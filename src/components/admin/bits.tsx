@@ -175,10 +175,11 @@ export function SectionTitle({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-4">
+    <div className="lux-rise flex flex-wrap items-end justify-between gap-4">
       <div>
         {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
         <h1 className="num-lux mt-1 text-3xl text-frost sm:text-4xl">{title}</h1>
+        <div className="gold-bar mt-2 w-24 rounded-full" />
         {subtitle ? <p className="mt-2 max-w-2xl text-sm text-slate-dim">{subtitle}</p> : null}
       </div>
       {action}
