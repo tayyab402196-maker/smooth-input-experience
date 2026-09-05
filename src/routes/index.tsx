@@ -180,7 +180,7 @@ function Index() {
             width={1024}
             height={295}
             fetchPriority="high"
-            className="h-10 w-auto shrink-0 sm:h-20"
+            className="h-11 w-auto shrink-0 sm:h-20"
           />
           <motion.nav
             {...rise(0.5)}
@@ -215,20 +215,21 @@ function Index() {
                 Order Now
               </OrderButton>
             </motion.div>
-            <motion.button
-              {...rise(0.62)}
-              type="button"
-              onClick={handleOrderNow}
-              className="rounded-full bg-flame px-4 py-2 font-display text-[11px] font-extrabold tracking-[0.14em] text-cream uppercase shadow-[0_10px_20px_rgba(180,40,20,0.35)] sm:hidden"
-            >
-              Order
-            </motion.button>
 
-            <motion.div {...rise(0.68)} className="shrink-0 lg:hidden">
+            {/* Phone: one tidy cream cluster — order, profile, menu */}
+            <motion.div {...rise(0.62)} className="nav-cluster lg:hidden">
+              <button
+                type="button"
+                onClick={handleOrderNow}
+                className="nav-cluster-btn w-auto gap-1.5 bg-flame px-4 font-display text-[11px] font-extrabold tracking-[0.12em] text-cream uppercase shadow-[0_8px_16px_rgba(180,40,20,0.4)]"
+              >
+                Order
+              </button>
+              <span aria-hidden="true" className="h-6 w-px bg-charcoal/10" />
               <Link
                 to={isSignedIn ? "/profile" : "/login"}
                 aria-label={isSignedIn ? "Your profile" : "Log in"}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream text-flame shadow-[0_8px_18px_rgba(0,0,0,0.18)] transition-transform duration-200 active:scale-95"
+                className="nav-cluster-btn text-flame active:bg-flame/10"
               >
                 {isSignedIn ? (
                   <UserRound className="h-5 w-5" aria-hidden="true" />
@@ -236,21 +237,20 @@ function Index() {
                   <LogIn className="h-5 w-5" aria-hidden="true" />
                 )}
               </Link>
+              <button
+                type="button"
+                aria-label="Open menu"
+                aria-expanded={navOpen}
+                onClick={() => setNavOpen((v) => !v)}
+                className="nav-cluster-btn text-charcoal active:bg-flame/10"
+              >
+                {navOpen ? (
+                  <X className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Menu className="h-5 w-5" aria-hidden="true" />
+                )}
+              </button>
             </motion.div>
-
-            <button
-              type="button"
-              aria-label="Open menu"
-              aria-expanded={navOpen}
-              onClick={() => setNavOpen((v) => !v)}
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream text-flame-dark shadow-[0_8px_18px_rgba(0,0,0,0.18)] lg:hidden"
-            >
-              {navOpen ? (
-                <X className="h-5 w-5" aria-hidden="true" />
-              ) : (
-                <Menu className="h-5 w-5" aria-hidden="true" />
-              )}
-            </button>
           </div>
 
           <AnimatePresence>
